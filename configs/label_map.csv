@@ -1,0 +1,18 @@
+source_dataset,source_label,target_class,broad_category,route,icd11,snomed,excluded,exclusion_reason
+fitzpatrick17k,psoriasis,Psoriasis,Inflammatory,exact,EA90,9014002,0,
+fitzpatrick17k,atopic dermatitis,Atopic dermatitis or eczema,Inflammatory,exact,EA80,24079001,0,
+fitzpatrick17k,tinea corporis,Dermatophytosis or tinea,Infectious,synonym,1F28,47382004,0,
+fitzpatrick17k,acne vulgaris,Acne vulgaris,Acne and appendageal,exact,ED80,88616000,0,
+fitzpatrick17k,basal cell carcinoma,Basal cell carcinoma,Pigmented and neoplastic,exact,2C32,254701007,0,
+fitzpatrick17k,melanoma,Melanoma,Pigmented and neoplastic,exact,2C30,372244006,0,
+sd198,Seborrheic Dermatitis,Seborrhoeic dermatitis,Inflammatory,synonym,EA81,50563003,0,
+sd198,Scabies,Scabies and infestations,Infectious,exact,1G04,128869009,0,
+sd198,Lichen Planus,Lichen planus,Inflammatory,exact,EA91,4776004,0,
+pad_ufes_20,BCC,Basal cell carcinoma,Pigmented and neoplastic,code,2C32,254701007,0,
+pad_ufes_20,NEV,Benign melanocytic lesions,Pigmented and neoplastic,expert,2F20,400005006,0,
+derm7pt,nevus,Benign melanocytic lesions,Pigmented and neoplastic,exact,2F20,400005006,0,
+scin,contact dermatitis,Contact dermatitis,Inflammatory,exact,EK00,40275004,0,
+fitzpatrick17k,other,,,expert,,,1,non_specific
+sd198,Rash,,,expert,,,1,non_specific
+sd198,Exfoliative Erythroderma,,,expert,,,1,out_of_scope
+fitzpatrick17k,mycosis fungoides,,,expert,,,1,too_rare

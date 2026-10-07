@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software or the corpus build scripts, please cite the article below."
+title: "derm-skintone-audit: auditing and correcting skin-tone bias in dermatology image datasets"
+version: 1.0.0
+date-released: 2026-10-05
+license: MIT
+repository-code: "https://github.com/YOUR-GITHUB-USERNAME/derm-skintone-audit"
+url: "https://github.com/YOUR-GITHUB-USERNAME/derm-skintone-audit"
+doi: "10.5281/zenodo.YOUR-ZENODO-ID"
+authors:
+  - family-names: Mathew
+    given-names: Juby
+    email: jubymathew@amaljyothi.ac.in
+    orcid: "https://orcid.org/0000-0002-4660-5940"
+    affiliation: "James Cook University, Townsville, Australia; Amal Jyothi College of Engineering, Kanjirappally, India"
+keywords:
+  - dermatology
+  - machine-learning fairness
+  - skin-tone bias
+  - dataset auditing
+  - individual typology angle
+preferred-citation:
+  type: article
+  title: "A reproducible data-engineering pipeline for auditing and correcting skin-tone bias in dermatology image-recognition datasets"
+  journal: "Engineering Research Express"
+  year: 2026
+  authors:
+    - family-names: Mathew
+      given-names: Juby
+      orcid: "https://orcid.org/0000-0002-4660-5940"

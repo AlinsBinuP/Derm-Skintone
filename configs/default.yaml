@@ -1,0 +1,67 @@
+# Configuration for the corpus build and the experiments.
+# Every value here is reported in the paper: keep them in sync.
+
+paths:
+  manifest: data/manifest.csv            # one row per ingested image
+  label_map: configs/label_map.csv       # frozen source-to-class lookup
+  images_root: data/images
+  outputs: outputs
+
+sources:                                  # DDI is deliberately absent: external test only
+  - fitzpatrick17k
+  - sd198
+  - pad_ufes_20
+  - derm7pt
+  - scin
+
+external_test:
+  name: ddi
+  manifest: data/ddi_manifest.csv
+  # DDI's III-IV group crosses the binary boundary, so it is reported separately
+  primary_groups: { lighter: ["I-II"], darker: ["V-VI"] }
+  report_separately: ["III-IV"]
+
+colour_constancy:
+  method: shades_of_gray
+  minkowski_p: 6
+  short_side: 512
+
+skin_tone:
+  method: ita_cielab_meanLb
+  band_boundary_deg: 28.0
+  # The three confidence thresholds. These are reported in section 4.5 of the paper:
+  # set them to the values you actually used.
+  confidence:
+    min_skin_pixels: 5000       # TO COMPLETE
+    max_ita_iqr_deg: 12.0       # TO COMPLETE
+    min_boundary_margin_deg: 3.0  # TO COMPLETE
+  segmentation_model: TO_COMPLETE   # network name and checkpoint
+
+dedup:
+  phash_hamming_threshold: 6        # TO COMPLETE
+  embedding_model: TO_COMPLETE
+  cosine_threshold: 0.95            # TO COMPLETE
+  loose_hamming_threshold: 10       # TO COMPLETE - used for group keys
+
+split:
+  fractions: [0.70, 0.10, 0.20]
+  seed: 2026
+  stratify_by: [class, band]
+  group_by: patient_or_cluster
+
+training:
+  backbones: [resnet50, vit_b_16]
+  seeds: [2026, 2027, 2028, 2029, 2030]
+  n_per_class: null                 # TO COMPLETE - check with 03_train_ablations.py --check-n
+
+evaluation:
+  n_bootstrap: 2000
+  bootstrap_level: group            # patient, case or duplicate cluster
+  stratify_bootstrap_by: band
+  multiple_comparison: holm
+
+captions:
+  model: aaditya/Llama3-OpenBioLLM-70B
+  temperature: 0.0
+  max_new_tokens: 96
+  max_attempts: 2
